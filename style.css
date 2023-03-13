@@ -1,0 +1,180 @@
+/* Global CSS reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+html {
+  background-color: hsl(185, 41%, 84%);
+  font-family: "Space Mono", monospace;
+}
+
+/* Logo */
+
+.logo {
+  margin: 0 auto;
+  margin-top: 3.125rem;
+  margin-bottom: 2.125rem;
+}
+
+/* Main Card */
+
+.main-container {
+  background-color: #fff;
+  border-radius: 1.25rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.main-content {
+  max-width: 21.875rem;
+  padding: 1.5rem;
+}
+
+h4 {
+  font-size: 1rem;
+  color: hsl(183, 100%, 15%);
+  margin-bottom: 0.5rem;
+}
+
+input {
+  border: none;
+  width: 100%;
+  height: 2rem;
+  color: hsl(183, 100%, 15%);
+  font-size: 24px;
+  text-align: right;
+  margin-bottom: 2rem;
+}
+
+.bill-input {
+  background: url(images/icon-dollar.svg) no-repeat left 10px center,
+    hsl(189, 41%, 97%);
+}
+
+.tip-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tip-btn {
+  background-color: hsl(183, 100%, 15%);
+  border: none;
+  height: 3.25rem;
+  color: hsl(0, 0%, 100%);
+  border-radius: 5px;
+  font-size: 24px;
+}
+
+.tip-btn:last-child {
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(183, 100%, 15%);
+}
+
+.active-btn {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+
+.people-input {
+  background: url(images/icon-person.svg) no-repeat left 0.625rem center,
+    hsl(189, 41%, 97%);
+}
+
+.results-container {
+  max-width: 21.875rem;
+  background-color: hsl(183, 100%, 15%);
+  padding: 24px 16px;
+  border-radius: 20px;
+}
+
+.results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.125rem;
+}
+
+p {
+  color: hsl(0, 0%, 100%);
+  font-size: 14px;
+  margin-bottom: -0.4rem;
+}
+
+span {
+  color: hsl(186, 14%, 43%);
+  font-size: 12px;
+}
+
+.amount {
+  color: hsl(172, 67%, 45%);
+  font-size: 28px;
+}
+
+.reset-btn {
+  display: block;
+  border: none;
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+  width: 275px;
+  height: 2.5rem;
+  margin: 0 auto;
+  border-radius: 5px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+/* Attribution */
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
