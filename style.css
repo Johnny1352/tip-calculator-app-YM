@@ -95,6 +95,15 @@ input {
     hsl(189, 41%, 97%);
 }
 
+.bill-input::before {
+  content: "Must not be empty!";
+  display: inline-block;
+  width: 15px;
+  height: 10px;
+  position: absolute;
+  color: red;
+}
+
 .tip-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -102,16 +111,17 @@ input {
   margin-bottom: 2rem;
 }
 
-.tip-btn {
+.btn {
   background-color: hsl(183, 100%, 15%);
   border: none;
   height: 3.25rem;
   color: hsl(0, 0%, 100%);
   border-radius: 5px;
   font-size: 24px;
+  text-align: center;
 }
 
-.tip-btn:last-child {
+.custom-btn {
   background-color: hsl(189, 41%, 97%);
   color: hsl(183, 100%, 15%);
 }
