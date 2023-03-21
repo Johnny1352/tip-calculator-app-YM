@@ -6,27 +6,44 @@ const customBtn = document.querySelector(".custom-btn");
 const peopleInput = document.querySelector(".people-input");
 const tipAmount = document.querySelector(".tip-amount");
 const totalAmount = document.querySelector(".total-amount");
+const resetBtn = document.querySelector(".reset-btn");
 const form = document.querySelector(".main-content");
 let tip = 0;
+
+form.addEventListener("input", () => {
+  calculateResults();
+});
 
 tipBtns.forEach((tipBtn) =>
   tipBtn.addEventListener("click", () => {
     btnReset();
+    customBtn.value = "";
     tipBtn.classList.add("active-btn");
     tip = parseInt(tipBtn.value.replace("%", "")) * 0.01;
   })
 );
 
 customBtn.addEventListener("change", () => {
+  btnReset();
   tip = parseInt(customBtn.value) * 0.01;
   customBtn.value = tip * 100 + "%";
+});
+
+resetBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  btnReset();
+  tip = 0;
+  billInput.value = "";
+  peopleInput.value = "";
+  tipAmount.innerHTML = `$0.00`;
+  totalAmount.innerHTML = `$0.00`;
 });
 
 const btnReset = function () {
   tipBtns.forEach((tipBtn) => tipBtn.classList.remove("active-btn"));
 };
 
-form.addEventListener("input", () => {
+const calculateResults = function () {
   const bill = parseFloat(billInput.value);
   const people = parseInt(peopleInput.value);
   if (bill > 0 && people > 0 && tip !== undefined) {
@@ -38,7 +55,7 @@ form.addEventListener("input", () => {
     tipAmount.innerHTML = `$0.00`;
     totalAmount.innerHTML = `$0.00`;
   }
-});
+};
 
 const checkError = function () {
   if (!billInput.value) {
@@ -52,21 +69,3 @@ const checkError = function () {
     totalAmount.innerHTML = `$0.00`;
   } else peopleInput.style.border = "none";
 };
-
-// peopleInput.addEventListener("input", () => {
-//   if (tip === 0) {
-//     alert("Please select the tip");
-//   } else {
-//     people = parseInt(peopleInput.value);
-//     bill = parseInt(billInput.value);
-//     tipAmount.textContent = (bill * tip) / people;
-//   }
-// });
-
-// customBtn.addEventListener("input", () => {
-//   const btnValue = customBtn.value;
-//   const bill = parseFloat(billInput.value);
-//   const percentage = parseFloat(btnValue) / 100;
-//   const tip = (bill * percentage) / peopleInput.value;
-//   tipAmount.innerHTML = `$${((bill + tip) / peopleInput.value).toFixed(2)}`;
-// });
