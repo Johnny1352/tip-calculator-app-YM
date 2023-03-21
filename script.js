@@ -26,7 +26,21 @@ const btnReset = function () {
   tipBtns.forEach((tipBtn) => tipBtn.classList.remove("active-btn"));
 };
 
-form.addEventListener("change", () => {
+form.addEventListener("input", () => {
+  const bill = parseFloat(billInput.value);
+  const people = parseInt(peopleInput.value);
+  if (bill > 0 && people > 0 && tip !== undefined) {
+    const tipResult = ((bill * tip) / people).toFixed(2);
+    const totalResult = ((bill + bill * tip) / people).toFixed(2);
+    tipAmount.innerHTML = `$${tipResult}`;
+    totalAmount.innerHTML = `$${totalResult}`;
+  } else {
+    tipAmount.innerHTML = `$0.00`;
+    totalAmount.innerHTML = `$0.00`;
+  }
+});
+
+const checkError = function () {
   if (!billInput.value) {
     billInput.style.border = "solid 1px red";
     tipAmount.innerHTML = `$0.00`;
@@ -37,12 +51,7 @@ form.addEventListener("change", () => {
     tipAmount.innerHTML = `$0.00`;
     totalAmount.innerHTML = `$0.00`;
   } else peopleInput.style.border = "none";
-  const bill = parseFloat(billInput.value);
-  tipAmount.innerHTML = `$${((bill * tip) / peopleInput.value).toFixed(2)}`;
-  totalAmount.innerHTML = `$${((bill + bill * tip) / peopleInput.value).toFixed(
-    2
-  )}`;
-});
+};
 
 // peopleInput.addEventListener("input", () => {
 //   if (tip === 0) {
