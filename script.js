@@ -16,22 +16,25 @@ form.addEventListener("input", () => {
 
 tipBtns.forEach((tipBtn) =>
   tipBtn.addEventListener("click", () => {
-    btnReset();
+    // btnReset();
     customBtn.value = "";
-    tipBtn.classList.add("active-btn");
-    tip = parseInt(tipBtn.value.replace("%", "")) * 0.01;
+    if (tipBtn.checked === true) {
+      tipBtn.classList.add("active-btn");
+      tip = parseInt(tipBtn.value.replace("%", "")) * 0.01;
+    }
   })
 );
 
 customBtn.addEventListener("change", () => {
-  btnReset();
+  radioReset();
   tip = parseInt(customBtn.value) * 0.01;
   customBtn.value = tip * 100 + "%";
+  calculateResults();
 });
 
 resetBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  btnReset();
+  radioReset();
   tip = 0;
   billInput.value = "";
   peopleInput.value = "";
@@ -39,8 +42,11 @@ resetBtn.addEventListener("click", (e) => {
   totalAmount.innerHTML = `$0.00`;
 });
 
-const btnReset = function () {
-  tipBtns.forEach((tipBtn) => tipBtn.classList.remove("active-btn"));
+const radioReset = function () {
+  tipBtns.forEach((tipBtn) => {
+    tip = 0;
+    tipBtn.checked = false;
+  });
 };
 
 const calculateResults = function () {
