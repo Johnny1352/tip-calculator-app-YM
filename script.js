@@ -5,6 +5,7 @@ const tipBtns = document.querySelectorAll(".tip-btn");
 const customBtn = document.querySelector(".custom-btn");
 const peopleInput = document.querySelector(".people-input");
 const tipAmount = document.querySelector(".tip-amount");
+const billAmount = document.querySelector(".bill-amount");
 const totalAmount = document.querySelector(".total-amount");
 const resetBtn = document.querySelector(".reset-btn");
 const form = document.querySelector(".main-content");
@@ -19,7 +20,6 @@ tipBtns.forEach((tipBtn) =>
     // btnReset();
     customBtn.value = "";
     if (tipBtn.checked === true) {
-      tipBtn.classList.add("active-btn");
       tip = parseInt(tipBtn.value.replace("%", "")) * 0.01;
     }
   })
@@ -56,6 +56,7 @@ const calculateResults = function () {
     const tipResult = ((bill * tip) / people).toFixed(2);
     const totalResult = ((bill + bill * tip) / people).toFixed(2);
     tipAmount.innerHTML = `$${tipResult}`;
+    billAmount.innerHTML = `$${(bill / people).toFixed(2)}`;
     totalAmount.innerHTML = `$${totalResult}`;
   } else {
     tipAmount.innerHTML = `$0.00`;
