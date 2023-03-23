@@ -39,6 +39,7 @@ resetBtn.addEventListener("click", (e) => {
   billInput.value = "";
   peopleInput.value = "";
   tipAmount.innerHTML = `$0.00`;
+  billAmount.innerHTML = `$0.00`;
   totalAmount.innerHTML = `$0.00`;
 });
 
